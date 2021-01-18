@@ -9,8 +9,7 @@ f.close()
 
 # Make "CmakeLists.txt"
 f = open("CMakeLists.txt", "w")
-f.write("cmake_minimum_required(VERSION 3.6)\n" + 
-"project("+proj+")\n" +
+f.write("cmake_minimum_required(VERSION 3.6)\n" +
 "add_executable(app " + proj + ".cpp)\n"+
 "set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT app)")
 f.close()
