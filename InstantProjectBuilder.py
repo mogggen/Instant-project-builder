@@ -1,22 +1,8 @@
+with open("main.cpp", "w") as f:
+  f.write("int main()\n{\n\t\n}")
+with open("CMakeLists.txt", "w") as f:
+  f.write("cmake_minimum_required(VERSION 3.6)\nadd_executable(app main.cpp)")
 import os
-#make sure Cmake is in PATH
-proj = input("project name: ")
-
-# "proj".cpp
-f = open("\"" + proj + ".cpp\"", "w")
-f.write("int main()\n{\n\t\n}")
-f.close()
-
-# Make "CmakeLists.txt"
-f = open("CMakeLists.txt", "w")
-f.write("cmake_minimum_required(VERSION 3.6)\n" +
-"add_executable(app " + proj + ".cpp)\n"+
-"set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT app)")
-f.close()
-
-#build binaries to build
 os.system("cmake -S . -B ./build/")
-
-#open .sln
-path = "\""+os.getcwd()+"\\build\\"+proj+".sln\""
+path = "\""+os.getcwd()+"\\build\\Project.sln\""
 os.system(path)
